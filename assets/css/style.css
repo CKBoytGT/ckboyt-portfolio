@@ -1,0 +1,320 @@
+:root {
+    --dark: #211335;
+    --light: #7E57C5;
+    --text: #fff;
+    --links: #9CE7E0;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 1440px;
+    background-color: var(--dark);
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text);
+}
+
+h1, h2 {
+    font-family: 'Eczar', serif;
+    font-weight: 400;
+    text-transform: lowercase;
+    letter-spacing: .05rem;
+}
+
+h1{
+    font-size: 48px;
+}
+
+h2 {
+    overflow: hidden;
+    padding: 10px 0;
+    font-size: 32px;
+}
+
+/* decorative divider line */
+h2:after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    margin-right: -100%;
+    margin-left: 10px;
+    border-top: 1px solid var(--links);
+}
+
+a,
+a:visited {
+    text-decoration: underline;
+    color: var(--links);
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+    color: var(--text);
+}
+
+.highlight {
+    color: var(--links);
+}
+
+/* header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--light);
+    max-width: 95%;
+    padding: 20px;
+}
+
+
+header img {
+    max-width: 250px;
+}
+
+
+header nav ul {
+    display: flex;
+    justify-content: space-between;
+    padding-inline-start: 0px; /* remove forced padding from user agent stylesheet */
+    list-style-type: none;
+}
+
+header nav ul li {
+    margin-left: 40px;
+}
+
+header nav ul li:first-child {
+    margin-left: 0px;
+}
+
+/* navigation */
+.nav-links {
+    text-transform: uppercase;
+}
+
+.nav-links a, .main-nav a:visited {
+    text-decoration: none;
+    color: var(--text);
+}
+
+.nav-links a:hover, .main-nav a:focus {
+    border-bottom: 1px solid var(--links);
+    text-decoration: none;
+    color: var(--links);
+}
+
+/* main container */
+main {
+    margin: 0 auto;
+    max-width: 80%;
+    padding: 10px 0; 
+}
+
+/* about */
+#about {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+#about-avatar img {
+    margin: 20px 5px 20px 15px;
+    box-shadow: var(--links) 5px 5px 20px, var(--light) -5px -5px 20px;
+    border-radius: 50%;
+    max-width: 300px;
+}
+
+.text-right {
+    padding-left: 40px;
+}
+
+/* work */
+#work {
+    padding: 10px 0;
+}
+
+.work-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding-inline-start: 0; /* remove forced padding from user agent stylesheet */
+    list-style-type: none;
+}
+
+.work-gallery > li {
+    flex-basis: calc(50% - 5px); /* calculate the correct box width based on the 10px gap */
+    position: relative;
+    cursor: pointer;
+}
+
+.work-gallery > li:first-child {
+    flex-basis: 100%; /* force the first box to be full width */
+}
+
+.work-gallery li img {
+    object-fit: cover; /* keep aspect ratio */
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border-radius: 10px;
+}
+
+/* remove underline from gallery links */
+.work-gallery a, .work-gallery a:visited {
+    text-decoration: none;
+}
+
+/* gradient overlay on gallery links */
+.overlay, .overlay:visited {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: .5s ease;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    /* gradient effect */
+    background: rgb(126,87,197);
+    background: -moz-linear-gradient(135deg, rgba(126,87,197,0.5) 0%, rgba(156,231,224,0.5) 100%);
+    background: -webkit-linear-gradient(135deg, rgba(126,87,197,0.5) 0%, rgba(156,231,224,0.5) 100%);
+    background: linear-gradient(135deg, rgba(126,87,197,0.5) 0%, rgba(156,231,224,0.5) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7e57c5",endColorstr="#9ce7e0",GradientType=1);
+}
+
+.work-gallery .overlay:hover {
+    opacity: 0;
+}
+
+.work-gallery li .overlay span {
+    padding: 10px;
+    width: 100%;
+    background-color: var(--light);
+    text-align: center;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* contact */
+#contact {
+    padding: 10px 0;
+}
+
+#contact ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-inline-start: 0; /* remove forced padding from user agent stylesheet */
+    list-style-type: none;
+    font-size: 20px;
+}
+
+/* footer */
+footer {
+    margin: 0 auto;
+    border-top: 1px solid var(--light);
+    max-width: 95%;
+    padding: 20px;
+    font-size: 13px;
+    font-style: italic;
+    text-align: center;
+}
+
+/* media queries */
+
+/* tablet */
+@media screen and (max-width: 768px) {
+
+    /* centered header */
+    header {
+        flex-direction: column;
+    }
+
+    header nav ul {
+        padding-top: 20px;
+    }
+
+    /* add additional decorative divider line to left of h2s and make them centered */
+    h2 {
+        text-align: center;
+    }
+    
+    h2:before {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        margin-right: 10px;
+        margin-left: -100%;
+        border-top: 1px solid var(--links);
+    }
+
+    /* about section to column format */
+    #about {
+        flex-direction: column;
+    }
+
+    #about-avatar img {
+        margin: 20px auto;
+        max-width: 50%;
+    }
+
+    .text-right {
+        padding-left: 0;
+    }
+
+    /* gallery */
+    .work-gallery > li {
+        flex-basis: 100%; /* make all boxes full width on tablet/mobile */
+    }
+
+    .work-gallery li .overlay span {
+        font-size: 20px;
+    }
+
+    #contact ul {
+        flex-direction: column;
+        align-items: center;
+
+}
+
+}
+
+/* mobile */
+@media screen and (max-width: 400px) {
+
+    /* stacked header */
+    header {
+        flex-direction: column;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        padding-top: 20px;
+    }
+
+    header nav ul li {
+        margin: 0 auto;
+    }
+
+    header nav ul li:first-child {
+        margin: 0 auto;
+    }
+
+    /* gallery */
+    .work-gallery li .overlay span {
+        font-size: 16px;
+    }
+
+}
