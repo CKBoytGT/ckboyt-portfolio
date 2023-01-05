@@ -100,7 +100,7 @@ header nav ul li:first-child {
     color: var(--text);
 }
 
-.nav-links a:hover, .main-nav a:focus {
+.nav-links a:hover, .nav-links a:focus {
     border-bottom: 1px solid var(--links);
     text-decoration: none;
     color: var(--links);
@@ -110,7 +110,7 @@ header nav ul li:first-child {
 main {
     margin: 0 auto;
     max-width: 80%;
-    padding: 10px 0; 
+    padding: 20px 0; 
 }
 
 /* about */
@@ -122,19 +122,19 @@ main {
 }
 
 #about-avatar img {
-    margin: 20px 5px 20px 15px;
+    margin: 10px 5px 10px 15px;
     box-shadow: var(--links) 5px 5px 20px, var(--light) -5px -5px 20px;
     border-radius: 50%;
     max-width: 300px;
 }
 
 .text-right {
-    padding-left: 40px;
+    margin-left: 40px;
 }
 
 /* work */
 #work {
-    padding: 10px 0;
+    margin: 10px 0;
 }
 
 .work-gallery {
@@ -178,7 +178,6 @@ main {
     align-items: center;
     justify-content: center;
     opacity: 1;
-    transition: .5s ease;
     border-radius: 10px;
     width: 100%;
     height: 100%;
@@ -192,6 +191,7 @@ main {
 
 .work-gallery .overlay:hover {
     opacity: 0;
+    transition: .5s ease;
 }
 
 .work-gallery li .overlay span {
@@ -208,16 +208,43 @@ main {
 
 /* contact */
 #contact {
-    padding: 10px 0;
+    margin: 10px 0;
 }
 
 #contact ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin: 10px 0 20px 0;
     padding-inline-start: 0; /* remove forced padding from user agent stylesheet */
     list-style-type: none;
-    font-size: 20px;
+    font-size: 18px;
+}
+
+#contact ul li {
+    color: var(--text);
+    background: rgb(126,87,197);
+    background: -moz-linear-gradient(135deg, rgba(126,87,197,1) 0%, rgba(156,231,224,1) 100%);
+    background: -webkit-linear-gradient(135deg, rgba(126,87,197,1) 0%, rgba(156,231,224,1) 100%);
+    background: linear-gradient(135deg, rgba(126,87,197,1) 0%, rgba(156,231,224,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7e57c5",endColorstr="#9ce7e0",GradientType=1);
+    margin: 10px 0 10px 0;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+#contact ul li:hover, #contact ul li:focus {
+    background: var(--light);
+}
+
+#contact ul li a, #contact ul li a:visited{
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#contact ul li:hover a, #contact ul li:focus a { /* make sure highlight occurs when hovering over whole li, not just the link */
+    color: var(--text);
 }
 
 /* footer */
@@ -234,7 +261,7 @@ footer {
 /* media queries */
 
 /* tablet */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 912px) {
 
     /* centered header */
     header {
@@ -271,7 +298,7 @@ footer {
     }
 
     .text-right {
-        padding-left: 0;
+        margin-left: 0;
     }
 
     /* gallery */
@@ -283,11 +310,12 @@ footer {
         font-size: 20px;
     }
 
+    /* contact section to column format */
     #contact ul {
         flex-direction: column;
         align-items: center;
 
-}
+    }
 
 }
 
