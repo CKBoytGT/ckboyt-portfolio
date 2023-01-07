@@ -8,7 +8,7 @@ Professional portfolio to display code projects. Uses graphic design assets from
 - **Responsiveness:** Changes from a left-aligned desktop/laptop design to a centered tablet/mobile design at a 912px breakpoint.
 
 ## Screenshot
-Pending.
+![Screenshot of desktop and mobile versions of the site.](assets/images/app-screenshot.png)
 
 ## Links
 - [Deployed Site](https://ckboytgt.github.io/ckboyt-portfolio/)
