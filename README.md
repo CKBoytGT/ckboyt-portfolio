@@ -16,6 +16,7 @@ Pending.
 
 ## Credits
 - [How to create a responsive image gallery with CSS flexbox](https://blog.logrocket.com/responsive-image-gallery-css-flexbox/) by Ibadehin Mojeed
+- [How to Add Lines Before and After the Heading Text](https://www.w3docs.com/snippets/css/how-to-add-lines-before-and-after-heading-text.html) from W3docs
 - [CSS Gradient](https://cssgradient.io/) for gradient code
 - [Google Fonts](https://fonts.google.com/) for fonts Eczar and Montserrat
 - [Font Awesome](https://fontawesome.com/) for icons
