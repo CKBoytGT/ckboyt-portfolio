@@ -1,8 +1,13 @@
 :root {
     --dark: #211335;
     --light: #7E57C5;
+    --light-rgb: rgb(126,87,197);
+    --light-rgba: rgba(126,87,197,1);
+    --light-half: rgba(126,87,197,0.5);
     --text: #fff;
-    --links: #9CE7E0;
+    --accent: #9CE7E0;
+    --accent-rgba: rgba(156,231,224,1);
+    --accent-half: rgba(156,231,224,0.5);
 }
 
 body {
@@ -14,51 +19,44 @@ body {
     color: var(--text);
 }
 
-h1, h2 {
+h1,
+h2 {
     font-family: 'Eczar', serif;
     font-weight: 400;
     text-transform: lowercase;
     letter-spacing: .05rem;
 }
 
-h1{
+h1 {
     font-size: 48px;
 }
 
 h2 {
-    overflow: hidden;
+    overflow: hidden; /* keeps decorative line from over-extending */
     padding: 10px 0;
     font-size: 32px;
 }
 
-/* decorative divider line */
-h2:after {
+h2:after { /* decorative divider line */
     content: "";
     display: inline-block;
     vertical-align: middle;
     width: 100%;
     margin-right: -100%;
     margin-left: 10px;
-    border-top: 1px solid var(--links);
+    border-top: 1px solid var(--accent);
 }
 
-a,
-a:visited {
-    text-decoration: underline;
-    color: var(--links);
-}
-
-a:hover,
-a:focus {
+a { /* removes default underline for all links */
     text-decoration: none;
-    color: var(--text);
 }
 
-.highlight {
-    color: var(--links);
+.highlight { /* currently only used to highlight name in bio but could be useful later */
+    color: var(--accent);
 }
 
-/* header */
+/* --- HEADER --- */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -74,46 +72,46 @@ header img {
     max-width: 250px;
 }
 
+/* --- NAVIGATION --- */
 
-header nav ul {
+nav ul {
     display: flex;
     justify-content: space-between;
     padding-inline-start: 0px; /* remove forced padding from user agent stylesheet */
     list-style-type: none;
 }
 
-header nav ul li {
+nav ul li {
     margin-left: 40px;
 }
 
-header nav ul li:first-child {
+nav ul li:first-child {
     margin-left: 0px;
 }
 
-/* navigation */
 .nav-links {
     text-transform: uppercase;
 }
 
 .nav-links a, .main-nav a:visited {
-    text-decoration: none;
     color: var(--text);
 }
 
 .nav-links a:hover, .nav-links a:focus {
-    border-bottom: 1px solid var(--links);
-    text-decoration: none;
-    color: var(--links);
+    border-bottom: 1px solid var(--accent);
+    color: var(--accent);
 }
 
-/* main container */
+/* --- MAIN CONTAINER --- */
+
 main {
     margin: 0 auto;
     max-width: 80%;
     padding: 20px 0; 
 }
 
-/* about */
+/* --- ABOUT --- */
+
 #about {
     display: flex;
     justify-content: space-between;
@@ -123,7 +121,7 @@ main {
 
 #about-avatar img {
     margin: 10px 5px 10px 15px;
-    box-shadow: var(--links) 5px 5px 20px, var(--light) -5px -5px 20px;
+    box-shadow: var(--accent) 5px 5px 20px, var(--light) -5px -5px 20px;
     border-radius: 50%;
     max-width: 300px;
 }
@@ -132,12 +130,13 @@ main {
     margin-left: 40px;
 }
 
-/* work */
+/* --- WORK --- */
+
 #work {
     margin: 10px 0;
 }
 
-.work-gallery {
+.proj-gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -146,17 +145,16 @@ main {
     list-style-type: none;
 }
 
-.work-gallery > li {
+.proj-gallery > li {
     flex-basis: calc(50% - 5px); /* calculate the correct box width based on the 10px gap */
     position: relative;
-    cursor: pointer;
 }
 
-.work-gallery > li:first-child {
-    flex-basis: 100%; /* force the first box to be full width */
+.proj-gallery > li:first-child { /* force the first box to be full width */
+    flex-basis: 100%;
 }
 
-.work-gallery li img {
+.proj-gallery li img {
     object-fit: cover; /* keep aspect ratio */
     max-width: 100%;
     height: auto;
@@ -164,13 +162,8 @@ main {
     border-radius: 10px;
 }
 
-/* remove underline from gallery links */
-.work-gallery a, .work-gallery a:visited {
-    text-decoration: none;
-}
-
-/* gradient overlay on gallery links */
-.overlay, .overlay:visited {
+.overlay,
+.overlay:visited { /* gradient overlay on gallery links */
     position: absolute;
     top: 0;
     left: 0;
@@ -182,31 +175,38 @@ main {
     width: 100%;
     height: 100%;
     /* gradient effect */
-    background: rgb(126,87,197);
-    background: -moz-linear-gradient(135deg, rgba(126,87,197,0.5) 0%, rgba(156,231,224,0.5) 100%);
-    background: -webkit-linear-gradient(135deg, rgba(126,87,197,0.5) 0%, rgba(156,231,224,0.5) 100%);
-    background: linear-gradient(135deg, rgba(126,87,197,0.5) 0%, rgba(156,231,224,0.5) 100%);
+    background: var(--light);
+    background: -moz-linear-gradient(135deg, var(--light-half) 0%, var(--accent-half) 100%);
+    background: -webkit-linear-gradient(135deg, var(--light-half) 0%, var(--accent-half) 100%);
+    background: linear-gradient(135deg, var(--light-half) 0%, var(--accent-half) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7e57c5",endColorstr="#9ce7e0",GradientType=1);
 }
 
-.work-gallery .overlay:hover {
+.overlay:hover,
+.overlay:active,
+.overlay:focus {
     opacity: 0;
     transition: .5s ease;
 }
 
-.work-gallery li .overlay span {
+.proj-title-lang {
     padding: 10px;
     width: 100%;
     background-color: var(--light);
+    line-height: 1.4;
     text-align: center;
     color: var(--dark);
+}
+
+.proj-title {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-size: 24px;
     font-weight: 600;
 }
 
-/* contact */
+/* --- CONTACT --- */
+
 #contact {
     margin: 10px 0;
 }
@@ -218,36 +218,33 @@ main {
     margin: 10px 0 20px 0;
     padding-inline-start: 0; /* remove forced padding from user agent stylesheet */
     list-style-type: none;
-    font-size: 18px;
 }
 
-#contact ul li {
-    color: var(--text);
-    background: rgb(126,87,197);
-    background: -moz-linear-gradient(135deg, rgba(126,87,197,1) 0%, rgba(156,231,224,1) 100%);
-    background: -webkit-linear-gradient(135deg, rgba(126,87,197,1) 0%, rgba(156,231,224,1) 100%);
-    background: linear-gradient(135deg, rgba(126,87,197,1) 0%, rgba(156,231,224,1) 100%);
+#contact ul li a,
+#contact ul li a:visited {
+    display: block;
+    padding: 10px 20px;
+    color: var(--dark);
+    font-size: 18px;
+    font-weight: 600;
+    background: var(--light-rgb);
+    background: -moz-linear-gradient(135deg, var(--light-rgba) 0%, var(--accent-rgba) 100%);
+    background: -webkit-linear-gradient(135deg, var(--light-rgba) 0%, var(--accent-rgba) 100%);
+    background: linear-gradient(135deg, var(--light-rgba) 0%, var(--accent-rgba) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#7e57c5",endColorstr="#9ce7e0",GradientType=1);
     margin: 10px 0 10px 0;
     border-radius: 10px;
-    padding: 10px 20px;
 }
 
-#contact ul li:hover, #contact ul li:focus {
+#contact ul li a:hover,
+#contact ul li a:active,
+#contact ul li a:focus {
+    color: var(--text);
     background: var(--light);
 }
 
-#contact ul li a, #contact ul li a:visited{
-    color: var(--dark);
-    text-decoration: none;
-    font-weight: 600;
-}
+/* --- FOOTER --- */
 
-#contact ul li:hover a, #contact ul li:focus a { /* make sure highlight occurs when hovering over whole li, not just the link */
-    color: var(--text);
-}
-
-/* footer */
 footer {
     margin: 0 auto;
     border-top: 1px solid var(--light);
@@ -258,19 +255,10 @@ footer {
     text-align: center;
 }
 
-/* media queries */
+/* --- MEDIA QUERIES --- */
 
 /* tablet */
 @media screen and (max-width: 912px) {
-
-    /* centered header */
-    header {
-        flex-direction: column;
-    }
-
-    header nav ul {
-        padding-top: 20px;
-    }
 
     /* add additional decorative divider line to left of h2s and make them centered */
     h2 {
@@ -284,7 +272,16 @@ footer {
         width: 100%;
         margin-right: 10px;
         margin-left: -100%;
-        border-top: 1px solid var(--links);
+        border-top: 1px solid var(--accent);
+    }
+
+    /* centered header */
+    header {
+        flex-direction: column;
+    }
+
+    nav ul {
+        padding-top: 20px;
     }
 
     /* about section to column format */
@@ -302,11 +299,11 @@ footer {
     }
 
     /* gallery */
-    .work-gallery > li {
+    .proj-gallery > li {
         flex-basis: 100%; /* make all boxes full width on tablet/mobile */
     }
 
-    .work-gallery li .overlay span {
+    .proj-title {
         font-size: 20px;
     }
 
@@ -327,21 +324,21 @@ footer {
         flex-direction: column;
     }
 
-    header nav ul {
+    nav ul {
         flex-direction: column;
         padding-top: 20px;
     }
 
-    header nav ul li {
+    nav ul li {
         margin: 0 auto;
     }
 
-    header nav ul li:first-child {
+    nav ul li:first-child {
         margin: 0 auto;
     }
 
     /* gallery */
-    .work-gallery li .overlay span {
+    .proj-title {
         font-size: 16px;
     }
 
